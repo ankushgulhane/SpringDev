@@ -1,6 +1,9 @@
 package com.b1.beans;
 
-public class Student {
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
+
+public class Student implements ApplicationListener{
 	
 	private String name;
 	private long sno;
@@ -22,6 +25,18 @@ public class Student {
 	}
 	public void setCollage(String collage) {
 		this.collage = collage;
+	}
+	
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", sno=" + sno + ", collage="
+				+ collage + "]";
+	}
+	@Override
+	public void onApplicationEvent(ApplicationEvent arg0) {
+		System.out.println("context system is inatialize"+arg0.getClass());
+		System.out.println("context system is end");
+		
 	}
 	
 
